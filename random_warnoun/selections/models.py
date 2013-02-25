@@ -28,6 +28,10 @@ class Player(models.Model):
 	def __unicode__(self):
 		return self.name
 
+	def caster_pairings(self):
+		pairings = RoundPairing.objects.filter(player=self).order_by('round_number')
+		return [pairing.caster for pairing in pairings]
+
 class RoundPairing(models.Model):
 	player = models.ForeignKey(Player)
 	caster = models.ForeignKey(Caster)
@@ -35,3 +39,8 @@ class RoundPairing(models.Model):
 
 	def __unicode__(self):
 		return '%s: %s (round %d)' % (self.player, self.caster, self.round_number)
+
+	@staticmethod
+	def current_rounds():
+		rounds = RoundPairing.objects.all().aggregate(models.Max('round_number'))['round_number__max']
+		return rounds if rounds else 0

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table class="table-striped table">
+  <thead>
+  	<tr>
+  	  <td>Player</td>
+  	  {% for round in rounds %}
+      <td><a href="{% url view-round forloop.counter %}" target="_blank">Round {{ forloop.counter }}</a></td>
+      {% endfor %}
+  	</tr>
+  </thead>
+  <tbody>
+  	{% for player in players %}
+  	  <tr>
+  	  	<td>{{ player.name }}</td>
+        {% for caster in player.caster_pairings %}
+        <td>{{ caster.name }}</td>
+        {% endfor %}
+  	   </tr>
+  	{% endfor %}
+  </tbody>
+</table>
+{% endblock %}

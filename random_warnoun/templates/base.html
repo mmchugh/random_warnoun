@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}WMH Random Warnoun{% endblock %}</title>
+
+    <link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}css/custom.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div id="wrap">
+      <div class="container">
+
+        <div class="header">
+          <ul class="nav nav-pills pull-right">
+            <li><a href="{% url index %}">Main</a></li>
+            <li><a href="{% url players %}">Players</a></li>
+            <li><a href="{% url casters %}">Casters</a></li>
+          </ul>
+          <h3 class="muted">Random Warnoun</h3>
+        </div>
+        
+        {% block content %}{% endblock %}
+
+        
+
+      </div> <!-- /container -->
+    </div> <!-- /wrap -->
+    <div class="footer">
+      <p>&copy; mmchugh 2013</p>
+    </div>
+
+    <script src="{{ STATIC_URL }}/jquery.js"></script>
+    <script src="{{ STATIC_URL }}/bootstrap.js"></script>
+
+  </body>
+</html>

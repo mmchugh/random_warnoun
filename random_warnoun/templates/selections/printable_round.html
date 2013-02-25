@@ -1,0 +1,43 @@
+<html>
+<head>
+  <style type="text/css">
+	table {
+	  width:50%;  
+	}
+ 
+	th, td {
+	  padding: 4px;
+	  text-align: center ;
+	}
+ 
+	th {
+	  border-bottom: 2px solid #333333 ;
+	}
+ 
+	td {
+	border-bottom: 1px dotted #999999 ;
+	}
+ 
+  </style>
+</head>
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>Player</th>
+        <th>Faction</th>
+        <th>Caster</th>
+	  </tr>
+    </thead>
+    <tbody>
+      {% for pairing in pairings %}
+      <tr>
+  	    <td>{{ pairing.player.name }}</td>
+  	    <td>{{ pairing.player.get_faction_display }}</td>
+  	    <td>{{ pairing.caster.name }}</td>
+  	  </tr>
+  	  {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>

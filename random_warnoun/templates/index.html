@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Tournament Rounds</h2>
+  {% if rounds %}
+    <p>Currently {{ current_rounds }} rounds scheduled.</p>
+    <ul class="actions">
+      <li><a href="{% url view-rounds %}">View rounds</a></li>
+      <li><a href="{% url add-round %}">Add another round</a></li>
+    </ul>
+  {% else %}
+  	<p>There are no rounds scheduled!</p>
+  	<h3>Create tournament</h3>
+  	<form action="{% url create-tournament %}" method="GET" class="form">
+  	  <div class="controls">
+  	    <label for="rounds">Number of rounds:</label>
+  	    <input type="text" name="rounds">
+  	  </div>
+  	  <input type="submit" name="submit" value="Create">
+  	</form>
+  {% endif %}
+{% endblock %}

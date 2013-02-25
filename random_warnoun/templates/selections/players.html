@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p>Currently <strong>{{ players|length }}</strong> players listed.</p>
+<table class="table-striped table">
+  <thead>
+  	<tr>
+  	  <td>Player</td>
+  	  <td>Faction</td>
+  	</tr>
+  </thead>
+  <tbody>
+  	{% for player in players %}
+  	  <tr>
+  	  	<td>{{ player.name }}</td>
+  	  	<td>{{ player.get_faction_display }}</td>
+  	   </tr>
+  	{% endfor %}
+  </tbody>
+</table>
+{% endblock %}

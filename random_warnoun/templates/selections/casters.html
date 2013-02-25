@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p>Currently <strong>{{ casters|length }}</strong> casters listed.</p>
+<table class="table-striped table">
+  <thead>
+  	<tr>
+  	  <td>Name</td>
+  	  <td>Faction</td>
+  	</tr>
+  </thead>
+  <tbody>
+  	{% for caster in casters %}
+  	  <tr>
+  	  	<td>{{ caster.name }}</td>
+  	  	<td>{{ caster.get_faction_display }}</td>
+  	   </tr>
+  	{% endfor %}
+  </tbody>
+</table>
+{% endblock %}
