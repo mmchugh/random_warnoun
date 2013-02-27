@@ -13,8 +13,9 @@ middleware here, or combine a Django application with an application of another
 framework.
 
 """
-import os
+import os, sys
 
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir)))
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "random_warnoun.settings")
 
 # This application object is used by any WSGI server configured to use this
