@@ -6,7 +6,7 @@
   	<tr>
   	  <td>Player</td>
   	  {% for round in rounds %}
-      <td><a href="{% url view-round forloop.counter %}" target="_blank">Round {{ forloop.counter }}</a></td>
+      <td><a href="{% url 'view-round' forloop.counter %}" target="_blank">Round {{ forloop.counter }}</a></td>
       {% endfor %}
   	</tr>
   </thead>
